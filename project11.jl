@@ -159,8 +159,14 @@ function ellipse(B::Vector,C::Vector,x0::Float64,y0::Float64,a::Float64,b::Float
             end
             if if abs(C[j]) > sqrt((pow(b,2)*(pow(a,2)-pow(B[i],2)))/pow(a,2))b # Если точка ноходиться вне Эллипса
                     plot!(B[i], C[j,] color = "blue") # то красим в синий
-            end      
+            end  
+        end
+    end
+    for i in x0:x1
+        for j in y0:y1
+            Line(xdata=(-sqrt((pow(a,2)*(pow(b,2)-pow(B[i],2))))/pow(b,2), -sqrt((pow(b,2)*(pow(a,2)-pow(B[mod(i+1,n),],2))))/pow(a,2), ydata=(sqrt((pow(b,2)*(pow(a,2)-pow(C[mod(i+1,n)],2))))/pow(a,2),sqrt((pow(b,2)*(pow(a,2)-C[i,]))pow(b,2))))    
             Line(xdata=(sqrt((pow(a,2)*(pow(b,2)-pow(B[i],2))))/pow(b,2), sqrt((pow(b,2)*(pow(a,2)-pow(B[mod(i+1,n),],2))))/pow(a,2), ydata=(-sqrt((pow(b,2)*(pow(a,2)-pow(C[mod(i+1,n)],2))))/pow(a,2),-sqrt((pow(b,2)*(pow(a,2)-C[i,]))/pow(b,2))))
             Line(xdata=(sqrt((pow(a,2)*(pow(b,2)-pow(B[i],2))))/pow(b,2), sqrt((pow(b,2)*(pow(a,2)-pow(B[mod(i+1,n),],2))))/pow(a,2), ydata=(sqrt((pow(b,2)*(pow(a,2)-pow(C[mod(i+1,n)],2))))/pow(a,2),sqrt((pow(b,2)*(pow(a,2)-C[i,]))pow(b,2))))
-            # Строим Эллипс    
+            Line(xdata=(-sqrt((pow(a,2)*(pow(b,2)-pow(B[i],2))))/pow(b,2), -sqrt((pow(b,2)*(pow(a,2)-pow(B[mod(i+1,n),],2))))/pow(a,2), ydata=(-sqrt((pow(b,2)*(pow(a,2)-pow(C[mod(i+1,n)],2))))/pow(a,2),-sqrt((pow(b,2)*(pow(a,2)-C[i,]))pow(b,2))))
+            # Строим Эллипс           
 end
